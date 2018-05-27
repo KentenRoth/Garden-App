@@ -1,13 +1,4 @@
-const plants = [{
-    name: 'Corn',
-    harvest: 100
-},{
-    name: 'Radish',
-    harvest: 35,
-}, {
-    name: 'Onion',
-    harvest: 85
-}]
+const plants = []
 
 const sort = {
     harvestDate: '', // will be time stamp

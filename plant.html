@@ -6,18 +6,20 @@
 </head>
 
 <body>
-    <input id='plant-name' type='text' placeholder='Plant Name'>
-    <input id='amount-planted' type='text' placeholder='# Planted'>
-    <input id='date-planted' type='text' placeholder='Date Planted'>
-    <input id='until-harvest' type='text' placeholder='Days Until Harvest'>
-    <textarea id='notes' placeholder='Enter notes about your plants (optional)'></textarea>
-    <button id='plantedItem' type='submit'>Plant</button>
+    <form id='form-submit'>
+        <input type='text' placeholder='Plant Name' name='name'>
+        <input type='text' placeholder='# Planted' name='amount'>
+        <input type='text' placeholder='Date Planted' name='planted'>
+        <input type='text' placeholder='Days Until Harvest' name='harvest'>
+        <textarea placeholder='Enter notes about your plants (optional)' name:='note'></textarea>
+        <button>Plant</button>
+    </form>
 
 
     <!--  script imports -->
     <script src="uuidv4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
-    <script src="garden-functions.js"></script>
+    <script src="garden-app.js"></script>
     <script src="garden-plant.js"></script>
 </body>
 
