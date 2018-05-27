@@ -6,6 +6,41 @@
 </head>
 
 <body>
+
+    <h1>
+        Garden App
+    </h1>
+
+    <h2>
+        What's planted and when can I harvest?
+    </h2>
+    <div>
+        <h3>Plants:</h3>
+        <select id='filter-by'>
+            <option value='byHarvest'>Harvest Date</option>
+            <option value='byPlanted'>Planted Date</option>
+
+        </select>
+        <div id='planted-list'>
+
+        </div>
+    </div>
+
+    <div>
+        <button id='plant-button'>Plant</button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h3>Notes about this app</h3>
+        <p></p>
+    </div>
+
+    <!--  script imports -->
+    <script src="uuidv4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+    <script src="garden-functions.js"></script>
     <script src="garden-app.js"></script>
 </body>
 

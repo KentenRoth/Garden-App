@@ -6,7 +6,18 @@
 </head>
 
 <body>
-    <script src="garden-app.js"></script>
+        <input id='plant-name' type='text' placeholder='Plant Name'>
+        <input id='date-planted' type='text' placeholder='Date Planted'>
+        <input id='until-harvest' type='text' placeholder='Days Until Harvest'>
+        <textarea id='notes' placeholder='Enter notes about your plants (optional)'></textarea>
+        <button id='plantedItem' type='submit'>Plant</button>
+
+
+    <!--  script imports -->
+    <script src="uuidv4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+    <script src="garden-functions.js"></script>
+    <script src="garden-plant.js"></script>
 </body>
 
 </html>
