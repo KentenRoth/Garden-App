@@ -9,6 +9,12 @@ const plants = [{
     harvest: 85
 }]
 
+const sort = {
+    harvestDate: '', // will be time stamp
+    plantedDate: '' // will be time stamp
+}
+
+
 const createPlantsDOM = function (plant) {
     const plantList = document.createElement('div')
     const plantName = document.createElement('span')
@@ -26,6 +32,7 @@ const createPlantsDOM = function (plant) {
 
     return plantList
 }
+
 
 plants.forEach(function (plant) {
     const plantList = createPlantsDOM(plant)
