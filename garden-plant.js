@@ -10,13 +10,20 @@ document.querySelector('#form-submit').addEventListener('submit', function(e) {
     const notes = document.getElementsByTagName('textarea')[0].value
     const planted = e.target.elements.planted.value
     const harvest = e.target.elements.harvest.value
+
+    const plantedDate = moment(planted, ['YYYY-MM-DD', 'MM-DD-YYYY'])
+    const plantedTimestamp = moment(plantedDate).valueOf()
+
+    const harvestDate = moment(plantedTimestamp).add(harvest, 'days')
+    const whenToHarvest = moment(harvestDate).fromNow()
+
     plants.push({
         id: id,
         name: name,
         amount: amount,
         notes: notes,
-        planted: planted,
-        harvest: harvest
+        planted: plantedTimestamp,
+        harvest: whenToHarvest
     })
 
     savePlant(plants)

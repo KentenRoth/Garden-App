@@ -34,7 +34,7 @@ const createPlantsDOM = function (plant) {
     plantName.textContent = plant.name
     plantList.appendChild(plantName)
 
-    plantHarvest.textContent = plant.harvest
+    plantHarvest.textContent = ` should be ready to harvest ${plant.harvest}`
     plantList.appendChild(plantHarvest)
 
     harvestedPlant.textContent = 'x'
