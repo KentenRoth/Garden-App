@@ -22,7 +22,3 @@ document.querySelector('#form-submit').addEventListener('submit', function(e) {
     savePlant(plants)
 })
 
-const savePlant = function (plants) {
-    localStorage.setItem('plant', JSON.stringify(plants))
-}
-
