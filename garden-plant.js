@@ -2,7 +2,7 @@
 // Pull data from the form
 // Save data to the Plants object in localStorage (for now)
 
-document.querySelector('#form-submit').addEventListener('submit', function(e) {
+document.querySelector('#form-submit').addEventListener('submit', (e) => {
     e.preventDefault()
     const id = uuidv4()
     const name = e.target.elements.name.value

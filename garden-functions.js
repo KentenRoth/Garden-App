@@ -1,6 +1,6 @@
 // Will use this page when refactoring
 
-const getPlants = function () {
+const getPlants = () => {
     const plantsJSON = localStorage.getItem('plant')
     if (plantsJSON !== null) {
         return JSON.parse(plantsJSON)
@@ -10,13 +10,13 @@ const getPlants = function () {
 }
 
 
-const savePlant = function (plants) {
+const savePlant = (plants) => {
     localStorage.setItem('plant', JSON.stringify(plants))
 }
 
 
-const harvestPlant = function (id) {
-    const plantIndex = plants.findIndex(function (plant) {
+const harvestPlant = (id) => {
+    const plantIndex = plants.findIndex((plant) => {
         return plant.id === id
     })
     if (plantIndex > -1) {
@@ -25,7 +25,7 @@ const harvestPlant = function (id) {
 }
 
 
-const createPlantsDOM = function (plant) {
+const createPlantsDOM = (plant) => {
     const plantList = document.createElement('div')
     const plantName = document.createElement('span')
     const plantHarvest = document.createElement('span')
@@ -39,7 +39,7 @@ const createPlantsDOM = function (plant) {
 
     harvestedPlant.textContent = 'x'
     plantList.appendChild(harvestedPlant)
-    harvestedPlant.addEventListener('click', function () {
+    harvestedPlant.addEventListener('click', () => {
         harvestPlant(plant.id)
         savePlant(plants)
     })

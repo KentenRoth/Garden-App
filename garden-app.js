@@ -8,7 +8,7 @@ const sort = {
 }
 
 
-plants.forEach(function (plant) {
+plants.forEach((plant) => {
     const plantList = createPlantsDOM(plant)
     document.querySelector('#planted-list').appendChild(plantList)
 
