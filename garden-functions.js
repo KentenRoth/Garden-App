@@ -39,11 +39,72 @@ const createPlantsDOM = (plant) => {
 
     harvestedPlant.textContent = 'x'
     plantList.appendChild(harvestedPlant)
-    harvestedPlant.addEventListener('click', () => {
+    harvestedPlant.addEventListener('click', (e) => {
         harvestPlant(plant.id)
         savePlant(plants)
+        displayPlants(plants, sort)
     })
 
     return plantList
 }
 
+const sortPlants = (plants, sortBy) => {
+    if (sortBy === 'byHarvest') {
+        return plants.sort(function (a, b) {
+            if (a.harvest > b.harvest) {
+                return -1
+            } else if (a.harvest < b.harvest) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy === 'byPlanted') {
+        return plants.sort(function (a, b) {
+            if (a.planted > b.planted) {
+                return -1
+            } else if (a.planted < b.planted) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+        
+    } else if (sortBy === 'plantedMost') {
+        return plants.sort(function (a, b) {
+            if (a.amount > b.amount) {
+                return -1
+            } else if (a.amount < b.amount) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else if (sortBy == 'leastPlanted') {
+        return plants.sort(function (a, b) {
+            if (a.amount < b.amount) {
+                return -1
+            } else if (a.amount > b.amount) {
+                return 1
+            } else {
+                return 0
+            }
+        })
+    } else {
+        return plants
+    }
+}
+
+const displayPlants = (plants, sort) => {
+    plants = sortPlants(plants, sort.sortBy)
+    const sortPlant = plants.filter((plant) => {
+        return plant.name.toLowerCase().includes(sort.searchPlant.toLowerCase())
+    })
+
+    document.querySelector('#planted-list').innerHTML = ''
+
+    sortPlant.forEach((plant) => {
+        const plantList = createPlantsDOM(plant)
+        document.querySelector('#planted-list').appendChild(plantList)
+    })
+}
