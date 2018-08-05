@@ -20,20 +20,17 @@
         })
     }
 </script>
-
-
     <meta charset="utf-8">
 </head>
 
 <body>
-    <form action='/index.html' id='form-submit'>
-        <input type='text' placeholder='Plant Name' name='name'>
-        <input type='text' placeholder='# Planted' name='amount'>
-        <input type='date' placeholder='Date Planted' name='planted' id='planted' size='20'>
-        <input type='text' placeholder='Days Until Harvest' name='harvest'>
-        <textarea placeholder='Enter notes about your plants (optional)' name:='note'></textarea>
-        <button onclick="location.href='/'" >Plant</button>
-    </form>
+    
+    <input placeholder='Plant Name' id='name'>
+    <input placeholder='# Planted' id='amount'>
+    <input type='date' placeholder='Date Planted' name='planted' id='planted' size='20'>
+    <input placeholder='Days Until Harvest' id='harvest'>
+    <button onclick="location.href='/'">Plant</button>
+    <button id="remove-plant">Harvest</button>
 
     
 
@@ -41,8 +38,8 @@
     <script src="/scripts/uuidv4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
     <script src="/scripts/garden-functions.js"></script>
-    <script src="/scripts/garden-app.js"></script>
     <script src="/scripts/garden-plant.js"></script>
+    
 </body>
 
 </html>

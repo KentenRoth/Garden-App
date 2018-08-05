@@ -27,11 +27,12 @@ const harvestPlant = (id) => {
 
 const createPlantsDOM = (plant) => {
     const plantList = document.createElement('div')
-    const plantName = document.createElement('span')
+    const plantName = document.createElement('a')
     const plantHarvest = document.createElement('span')
     const harvestedPlant = document.createElement('button')
 
     plantName.textContent = plant.name
+    plantName.setAttribute('href', `/plant.html#${plant.id}`)
     plantList.appendChild(plantName)
 
     plantHarvest.textContent = ` should be ready to harvest ${plant.harvest}`

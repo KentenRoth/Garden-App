@@ -1,9 +1,26 @@
-const plants = getPlants()
+let plants = getPlants()
 
 const sort = {
     searchPlant: '',
     sortBy: 'byHarvest'
 }
+
+document.querySelector('#plant-button').addEventListener('click', (e) => {
+    e.preventDefault()
+    const id = uuidv4()
+
+    plants.push({
+        id: id,
+        name: '',
+        amount: '',
+        planted: '',
+        harvest: ''
+    })
+
+    savePlant(plants)
+    location.assign(`/plant.html#${id}`)
+})
+
 
 plants.forEach((plant) => {
     const plantList = createPlantsDOM(plant)
