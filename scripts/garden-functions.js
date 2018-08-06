@@ -52,9 +52,9 @@ const createPlantsDOM = (plant) => {
 const sortPlants = (plants, sortBy) => {
     if (sortBy === 'byHarvest') {
         return plants.sort(function (a, b) {
-            if (a.harvest > b.harvest) {
+            if (a.harvest < b.harvest) {
                 return -1
-            } else if (a.harvest < b.harvest) {
+            } else if (a.harvest > b.harvest) {
                 return 1
             } else {
                 return 0

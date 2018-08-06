@@ -7,6 +7,7 @@
 const nameElement = document.querySelector('#name')
 const amountElement = document.querySelector('#amount')
 const removePlant = document.querySelector('#remove-plant')
+const plantButton = document.querySelector('#planted-button')
 const plantedElement = document.querySelector('#planted')
 const harvestElement = document.querySelector('#harvest')
 
@@ -21,10 +22,8 @@ if (!plant) {
 // Repopulate the fields when coming back to page
 nameElement.value = plant.name
 amountElement.value = plant.amount
-
-// Not sure why these do not repopulate 
-plantedElement.value = plant.planted
-harvestElement.value = plant.harvest
+plantedElement.value = plant.plantedDate
+harvestElement.value = plant.harvestNumber
 
 
 // Saves name of plant
@@ -47,28 +46,39 @@ plantedElement.addEventListener('input', (e) => {
     const plantedDate = moment(plantedElement, ['YYYY-MM-DD', 'MM-DD-YYYY'])
     const planted = moment(plantedDate).valueOf()
     plant.planted = planted
+    plant.plantedDate = plantedElement
     savePlant(plants)
+    
 })
 
-// Needs to get info from plantedElement 
-// Cannot get it to pull from plantedElement value
-harvestElement.addEventListener('input', (e) => {
-
-    // This is converting what is coming back from moment.js 
+const whenToHarvest = () => {
+    const plantedValue = document.querySelector('#planted').value
+    const harvestValue = document.querySelector('#harvest').value
     const plantedDate = moment(plantedValue, ['YYYY-MM-DD', 'MM-DD-YYYY'])
     const planted = moment(plantedDate).valueOf()
     const harvestDate = moment(planted).add(harvestValue, 'days')
     const harvest = moment(harvestDate).fromNow()
+    return harvest
+}
 
-// this is where the value should save.
-    plant.harvest = e.target.value
-    console.log(plantedValue)
+// Needs to get info from plantedElement 
+// Cannot get it to pull from plantedElement value
+harvestElement.addEventListener('input', (e) => {
+    const harvest = whenToHarvest()
+    plant.harvest = harvest
+    plant.harvestNumber = document.querySelector('#harvest').value
     savePlant(plants)
 })
 
 // Remove plant button
 removePlant.addEventListener('click', (e) => {
     harvestPlant(plant.id)
+    savePlant(plants)
+    location.assign('/index.html')
+})
+
+plantButton.addEventListener('click', (e) => {
+    whenToHarvest()
     savePlant(plants)
     location.assign('/index.html')
 })

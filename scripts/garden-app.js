@@ -14,7 +14,9 @@ document.querySelector('#plant-button').addEventListener('click', (e) => {
         name: '',
         amount: '',
         planted: '',
-        harvest: ''
+        harvest: '',
+        plantedDate: '',
+        harvestNumber: ''
     })
 
     savePlant(plants)
