@@ -8,30 +8,38 @@
 </head>
 
 <body>
+    <div class="header">
+        <div class="container">
+            <h1 class="header__title">
+                Garden App
+            </h1>
+            <h2 class="header__subtitle">
+                What's planted and when can I harvest?
+            </h2>
+        </div>
+    </div>
+    
+    <div class="subheader">
+        <div class="subheader__container">
+                <input id='plant-search' class='input' type='text' placeholder='Search Plants'>
+                <select id='sort-by' class="dropdown">
+                    <option value='byHarvest'>Harvest Date</option>
+                    <option value='byPlanted'>Planted Date</option>
+                    <option value='plantedMost'>Most Planted</option>
+                    <option value='leastPlanted'>Least Planted</option>
+                </select>
+        </div>
+    </div>
 
-    <h1>
-        Garden App
-    </h1>
-
-    <h2>
-        What's planted and when can I harvest?
-    </h2>
     <div>
-        <input id='plant-search' type='text' placeholder='Search Plants'>
-        <select id='sort-by'>
-            <option value='byHarvest'>Harvest Date</option>
-            <option value='byPlanted'>Planted Date</option>
-            <option value='plantedMost'>Most Planted</option>
-            <option value='leastPlanted'>Least Planted</option>
-        </select>
-        <h3>What's Planted?</h3>
+
         <div id='planted-list'>
 
         </div>
     </div>
 
-    <div>
-        <button id='plant-button'>Plant</button>
+    <div class="container">
+        <button id='plant-button' class="button">Plant</button>
     </div>
 
 
