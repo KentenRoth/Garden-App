@@ -34,12 +34,37 @@
             </h2>
         </div>
     </div>
-    <input placeholder='Plant Name' id='name'>
-    <input placeholder='# Planted' id='amount'>
-    <input type='date' placeholder='Date Planted' name='planted' id='planted' size='20'>
-    <input placeholder='Days Until Harvest' id='harvest'>
-    <button id="planted-button">Plant</button>  
-    <button id="remove-plant">Harvest</button>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <input class='edit__input' placeholder='Plant Name' id='name'>
+                <input class='edit__input' type='date' placeholder='Date Planted' name='planted' id='planted' size='20'>
+            </div>
+            <div class="col-6">
+                <input class='edit__input' placeholder='# Planted' id='amount'>
+                <input class='edit__input' placeholder='Days Until Harvest' id='harvest'>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <button class='edit__button--plant' id="planted-button">Plant</button>
+            </div>
+            <div class="col-6">
+                <button class='edit__button--harvest' id="remove-plant">Harvest</button>
+            </div>
+        </div>
+        
+        
+    </div>
+
 
     
 

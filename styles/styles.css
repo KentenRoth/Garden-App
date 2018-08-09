@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    background: #8c8c8c;
+    background: #d5d5d5;
     color: #333333;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
@@ -21,6 +21,29 @@ body {
 button {
     cursor: pointer;
 }
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;}
+.row::after {
+    display: block;
+    clear: both;
+    content: "";}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 
 
 /* Container */
@@ -56,8 +79,8 @@ button {
 /* Sub Header */
 
 .subheader {
-    background-color: #787777;
-    border-bottom: 1px solid #5b5b5b;
+    background-color: #00775C;
+    border-bottom: 1px solid #005C48;
     padding: .8rem
 }
 
@@ -78,41 +101,159 @@ button {
 /* Forms */
 
 .input {
-    border: 1px solid #DEDFE0;
+    background: #D3D3D3;
+    border: 2px solid #009471;
     border-radius: 5px;
     font-size: 1.4rem;
-    font-weight: 300;
     height: 3rem;
-    margin-right: .8rem;
+    margin: auto;
+    min-width: 170px;
     padding: .4rem .8rem;
+    width: 60%;
 }
 
 .dropdown {
     border-radius: 0;
-    border: 1px solid #DEDFE0;
-    background: white;
+    border: 2px solid #009471;
+    background:#D3D3D3;
     font-size: 1.4rem;
     font-weight: 300;
     height: 3rem;
-    margin-right: 2rem;
+    margin: auto;
+    min-width: 170px;
     padding: .2rem;
     padding-right: 3rem;
+    width: 60%;
 }
 
 .button {
-    background: #8c8c8c;
-    border: 2px solid #009471;
+    background: #1CA586;
+    border: none;
+    border-bottom: 3px solid #009471;
     border-radius: 5px;
     color: white;
     display: block;
-    font-size: 1.4rem;
-    margin-top: 5rem;
-    padding: .5rem 2rem .5rem 2rem;
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin: auto;
+    padding: 1.5rem;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
+    width: 40%;
 }
 
 .button:hover {
-    background: #969696;
+    background: #009471;
     box-shadow: 0 .3rem .5rem 0 rgba(0,0,0, .5)
+}
+
+
+/* Plant List */
+
+.plant-list {
+    background: #1CA586;
+    border: 3px solid #00775C;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    margin: 1.6rem 0;
+    padding: 1.6rem;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s
+}
+
+.plant-list:hover {
+    background: #00775c;
+    box-shadow: 0 .3rem .5rem 0 rgba(0,0,0, .5);
+}
+
+
+/* Edit Page */
+
+.edit__input {
+    background: #D3D3D3;
+    border: 2px solid #009471;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    height: 3rem;
+    margin-top: 1.3rem;
+    min-width: 170px;
+    padding: .4rem .8rem;
+    width: 60%;
+}
+
+.edit__button--plant {
+    background: #1CA586;
+    border: none;
+    border-bottom: 3px solid #009471;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    font-size: 2rem;
+    margin-top: 3rem;
+    padding: 1rem;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    width: 60%;
+}
+
+.edit__button--plant:hover {
+    background: #009471;
+    box-shadow: 0 .3rem .5rem 0 rgba(0,0,0, .5);
+}
+
+.edit__button--harvest {
+    background: #808080;
+    border: none;
+    border-bottom: 3px solid #D90022;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    font-size: 2rem;
+    margin-top: 3rem;
+    padding: 1rem;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    width: 60%;
+}
+
+.edit__button--harvest:hover {
+    background: #D90022;
+    box-shadow: 0 .3rem .5rem 0 rgba(0,0,0, .5);
+}
+
+
+
+
+/* Media Screen */
+
+@media screen and (max-width: 680px) {
+    .col-6 {
+        width: 100%;
+    }
+
+    .header__title, .header__subtitle {
+        display: block;
+        text-align: center;
+    }
+
+
+    .input {
+        display: block;
+        margin: auto;
+    }
+
+    .dropdown , .edit__input {
+        display: block;
+        margin: auto;
+        margin-top: 1.3rem;
+    }
+    
+    .edit__button--harvest , .edit__button--plant {
+        display: block;
+        margin: auto;
+        margin-top: 3rem;
+        width: 60%;
+    }
 }
