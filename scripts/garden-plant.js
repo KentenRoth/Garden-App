@@ -39,18 +39,6 @@ amountElement.addEventListener('input', (e) => {
     savePlant(plants)
 })
 
-
-// 
-plantedElement.addEventListener('input', (e) => {
-    const plantedElement = e.target.value
-    const plantedDate = moment(plantedElement, ['YYYY-MM-DD', 'MM-DD-YYYY'])
-    const planted = moment(plantedDate).valueOf()
-    plant.planted = planted
-    plant.plantedDate = plantedElement
-    savePlant(plants)
-    
-})
-
 const whenToHarvest = () => {
     const plantedValue = document.querySelector('#planted').value
     const harvestValue = document.querySelector('#harvest').value
@@ -60,6 +48,19 @@ const whenToHarvest = () => {
     const harvest = moment(harvestDate).fromNow()
     return harvest
 }
+
+
+plantedElement.addEventListener('input', (e) => {
+    const plantedElement = e.target.value
+    const plantedDate = moment(plantedElement, ['YYYY-MM-DD', 'MM-DD-YYYY'])
+    const planted = moment(plantedDate).valueOf()
+    plant.planted = planted
+    plant.plantedDate = plantedElement
+    console.log(whenToHarvest())
+    savePlant(plants)
+    
+})
+
 
 // Needs to get info from plantedElement 
 // Cannot get it to pull from plantedElement value
@@ -78,7 +79,8 @@ removePlant.addEventListener('click', (e) => {
 })
 
 plantButton.addEventListener('click', (e) => {
-    whenToHarvest()
+    const harvest = whenToHarvest()
+    plant.harvest = harvest
     savePlant(plants)
     location.assign('/index.html')
 })
