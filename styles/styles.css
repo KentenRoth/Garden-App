@@ -227,7 +227,7 @@ button {
 
 /* Media Screen */
 
-@media screen and (max-width: 680px) {
+@media only screen and (max-width: 768px) {
     .col-6 {
         width: 100%;
     }
