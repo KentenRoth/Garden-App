@@ -102,3 +102,39 @@ const displayPlants = (plants, sort) => {
         document.querySelector('#planted-list').appendChild(plantList)
     })
 }
+
+const whenToHarvest = () => {
+    const plantedValue = document.querySelector('#planted').value
+    const harvestValue = document.querySelector('#harvest').value
+
+    if (!isNaN(plantedValue)) {
+        const plantedElement = moment().valueOf()
+        const plantedDate = moment(plantedElement).format('YYYY-MM-DD')
+        const planted = moment(plantedDate).valueOf()
+        const harvestDate = moment(planted).add(harvestValue, 'days')
+        const harvest = moment(harvestDate).fromNow()
+        plant.planted = plantedElement
+        plant.plantedDate = plantedDate
+        savePlant(plants)
+        return harvest
+    } else {
+        const plantedDate = moment(plantedValue, ['YYYY-MM-DD', 'MM-DD-YYYY'])
+        const planted = moment(plantedDate).valueOf()
+        const harvestDate = moment(planted).add(harvestValue, 'days')
+        const harvest = moment(harvestDate).fromNow()
+        plant.planted = planted
+        plant.plantedDate = plantedValue
+        console.log(plantedDate)
+        savePlant(plants)
+        return harvest
+    }
+}
+
+const isNumber = (evt) => {
+    evt = (evt) ? evt : window.event
+    var charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false
+    }
+    return true
+}

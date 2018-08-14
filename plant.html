@@ -38,12 +38,12 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <input class='edit__input' placeholder='Plant Name' id='name'>
-                <input class='edit__input' type='date' placeholder='Date Planted' name='planted' id='planted' size='20'>
+                <input class='edit__input' placeholder='Plant Name' id='name' maxlength="50">
+                <input class='edit__input' type='date' placeholder='MM/DD/YYYY' name='planted' id='planted' size='20'>
             </div>
             <div class="col-6">
-                <input class='edit__input' placeholder='# Planted' id='amount'>
-                <input class='edit__input' placeholder='Days Until Harvest' id='harvest'>
+                <input onkeypress='return isNumber(event)' class='edit__input' placeholder='# Planted' id='amount'>
+                <input onkeypress='return isNumber(event)' class='edit__input' placeholder='Days Until Harvest' id='harvest'>
             </div>
         </div>
     </div>

@@ -19,59 +19,35 @@ if (!plant) {
     location.assign('index.html')
 }
 
-// Repopulate the fields when coming back to page
 nameElement.value = plant.name
 amountElement.value = plant.amount
 plantedElement.value = plant.plantedDate
 harvestElement.value = plant.harvestNumber
 
-
-// Saves name of plant
 nameElement.addEventListener('input', (e) => {
     plant.name = e.target.value
     savePlant(plants)
 })
 
 
-// Saves amount planted
+
 amountElement.addEventListener('input', (e) => {
     plant.amount = e.target.value
     savePlant(plants)
 })
 
-const whenToHarvest = () => {
-    const plantedValue = document.querySelector('#planted').value
-    const harvestValue = document.querySelector('#harvest').value
-    const plantedDate = moment(plantedValue, ['YYYY-MM-DD', 'MM-DD-YYYY'])
-    const planted = moment(plantedDate).valueOf()
-    const harvestDate = moment(planted).add(harvestValue, 'days')
-    const harvest = moment(harvestDate).fromNow()
-    return harvest
-}
-
-
 plantedElement.addEventListener('input', (e) => {
-    const plantedElement = e.target.value
-    const plantedDate = moment(plantedElement, ['YYYY-MM-DD', 'MM-DD-YYYY'])
-    const planted = moment(plantedDate).valueOf()
-    plant.planted = planted
-    plant.plantedDate = plantedElement
-    console.log(whenToHarvest())
+    whenToHarvest()
     savePlant(plants)
-    
 })
 
-
-// Needs to get info from plantedElement 
-// Cannot get it to pull from plantedElement value
 harvestElement.addEventListener('input', (e) => {
-    const harvest = whenToHarvest()
+    harvest = whenToHarvest()
     plant.harvest = harvest
     plant.harvestNumber = document.querySelector('#harvest').value
     savePlant(plants)
 })
 
-// Remove plant button
 removePlant.addEventListener('click', (e) => {
     harvestPlant(plant.id)
     savePlant(plants)
@@ -84,36 +60,3 @@ plantButton.addEventListener('click', (e) => {
     savePlant(plants)
     location.assign('/index.html')
 })
-
-
-
-// This is what I had (working) before I switched it from a form setup.
-
-
-// document.querySelector('#form-submit').addEventListener('submit', (e) => {
-//     e.preventDefault()
-//     const id = uuidv4()
-//     const name = e.target.elements.name.value
-//     const amount = e.target.elements.amount.value
-//     const notes = document.getElementsByTagName('textarea')[0].value
-//     
-//     const harvest = e.target.elements.harvest.value
-
-//     const plantedDate = moment(planted, ['YYYY-MM-DD', 'MM-DD-YYYY'])
-//     const plantedTimestamp = moment(plantedDate).valueOf()
-
-//     const harvestDate = moment(plantedTimestamp).add(harvest, 'days')
-//     const whenToHarvest = moment(harvestDate).fromNow()
-
-//     plants.push({
-//         id: id,
-//         name: name,
-//         amount: amount,
-//         notes: notes,
-//         planted: plantedTimestamp,
-//         harvest: whenToHarvest
-//     })
-
-//     savePlant(plants)
-// })
-
