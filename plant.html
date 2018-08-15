@@ -2,25 +2,30 @@
 <html lang='en'>
 
 <head>
-    <link href="/styles/styles.css" rel="stylesheet">
-<script type="text/javascript">
-    var datefield = document.createElement("input")
-    datefield.setAttribute("type", "date")
-    if (datefield.type != "date") {
-        document.write('<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
-        document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
-        document.write('<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
-    }
-</script>
-
-<script>
-    if (datefield.type != "date") { 
-        jQuery(function ($) { 
-            $('#planted').datepicker();
-        })
-    }
-</script>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/styles/styles.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <title>Lets Plant Something</title>
+
+    <script type="text/javascript">
+        var datefield = document.createElement("input")
+        datefield.setAttribute("type", "date")
+        if (datefield.type != "date") {
+            document.write('<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+            document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+            document.write('<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+        }
+    </script>
+    
+    <script>
+        if (datefield.type != "date") {
+            jQuery(function ($) {
+                $('#planted').datepicker();
+            })
+        }
+    </script>
+
 </head>
 
 <body>
@@ -42,8 +47,8 @@
                 <input class='edit__input' type='date' placeholder='MM/DD/YYYY' name='planted' id='planted' size='20'>
             </div>
             <div class="col-6">
-                <input onkeypress='return isNumber(event)' class='edit__input' placeholder='# Planted' id='amount'>
-                <input onkeypress='return isNumber(event)' class='edit__input' placeholder='Days Until Harvest' id='harvest'>
+                <input onkeypress='return isNumber(event)' class='edit__input' placeholder='# Planted' id='amount' maxlength="3">
+                <input onkeypress='return isNumber(event)' class='edit__input' placeholder='Days Until Harvest' id='harvest' maxlength="3">
             </div>
         </div>
     </div>
